@@ -1,0 +1,3 @@
+This file disables Jekyll in GitHub pages.
+
+By default GH pages ignores directories that start with underscores. That means it ignores the _next directory crated in the Next.js build.
