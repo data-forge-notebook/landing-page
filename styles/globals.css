@@ -15,6 +15,10 @@ a {
   box-sizing: border-box;
 } */
 
+body {
+    font-family: 'Noto Sans','Roboto', sans-serif;
+}
+
 /* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
