@@ -1,11 +1,11 @@
-import { Card } from 'antd'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from "next/link"
+import Layout from '../components/layout'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -28,6 +28,6 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-    </div>
+    </Layout>
   )
 }
