@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Data-Forge Notebook landing page
+
+The landing page for [Data-Forge Notebook](www.data-forge-notebook.com).
 
 ## Getting Started
 
