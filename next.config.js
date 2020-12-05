@@ -1,4 +1,4 @@
 module.exports = {
-    assetPrefix: '/landing-page/',
-    basePath: '/landing-page',
+    // assetPrefix: '/landing-page/',
+    // basePath: '/landing-page',
 };
