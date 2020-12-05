@@ -1,9 +1,8 @@
 import { Card } from 'antd'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Link from "next/link"
 
-export default function Home() {
+export default function Product() {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,9 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
-          Hello!
-
-          <Link href="/product"><a>Buy Data-Forge Notebook Pro!</a></Link>
+          Product!
       </main>
 
       <footer className={styles.footer}>
