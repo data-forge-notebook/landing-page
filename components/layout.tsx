@@ -27,7 +27,7 @@ export default function Layout({ children }: any) {
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center">
                         <img 
-                            src="/images/logo.png" 
+                            src="images/logo.png" 
                             alt="Data-Forge Notebook Logo" 
                             style={{
                                 height: "33px",
