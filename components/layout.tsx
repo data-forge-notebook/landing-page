@@ -1,32 +1,48 @@
-import { Layout as AntLayout, Menu } from "antd";
-import styles from '../styles/Home.module.css'
+import { Button, Layout as AntLayout, Menu } from "antd";
+import Link from "next/link";
 
 const { Header, Content, Footer } = AntLayout;
 
 export default function Layout({ children }: any) {
     return (
         <AntLayout>
-            <Header>
+
+            <div className="bg-black text-white text-center pt-4 pb-4">
+                {/*TODO: Only show this on the main page! */ }
+                <div>
+                    Sign up with your email address to get the free version of Data-Forge Notebook.
+                </div>
+                <div>   
+                    You can also choose to support the developer and <Link href="/product"><a>purchase Data-Forge Notebook Pro</a></Link>.
+                </div>
+            </div>
+
+            <Header className="header">
                 <div className="flex flex-col">
-                    <div>
-                        Message
-                    </div>
                     <div className="flex flex-row items-center">
-                        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+                        <img 
+                            src="/images/logo.png" 
+                            alt="Data-Forge Notebook Logo" 
+                            style={{
+                                height: "33px",
+                            }}
+                            />
                         <div className="flex-grow" />
-                        <Menu mode="horizontal" defaultSelectedKeys={['2']}>
-                            <Menu.Item key="1">nav 1</Menu.Item>
-                            <Menu.Item key="2">nav 2</Menu.Item>
-                            <Menu.Item key="3">nav 3</Menu.Item>
+                        <Menu mode="horizontal">
+                            <Menu.Item>ABOUT</Menu.Item>
+                            <Menu.Item>GIVE SUPPORT</Menu.Item>
+                            <Button ghost>BUY PRO</Button>
                         </Menu>
                     </div>
                 </div>
                 
             </Header>
-            <Content style={{ padding: '0 50px' }}>
+            <Content>
                 {children}
             </Content>
-            <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+            <Footer className="text-center pt-16 pb-16">
+                © 2020 Code Capers 
+            </Footer>
         </AntLayout>
     );
 }
