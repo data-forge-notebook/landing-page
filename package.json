@@ -9,14 +9,16 @@
     "publish": "rm -rf docs && next build && next export && mv out docs"
   },
   "dependencies": {
+    "@zeit/next-less": "^1.0.1",
     "antd": "^4.9.1",
-    "autoprefixer": "^10.0.4",
+    "autoprefixer": "^9.8.6",
+    "less": "^3.12.2",
     "next": "10.0.3",
-    "postcss": "^8.1.14",
+    "postcss": "^7.0.35",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.30.0",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.10",

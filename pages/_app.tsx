@@ -1,6 +1,6 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router'
-import 'antd/dist/antd.css'
-import '../styles/globals.scss'
+import "../styles/antd.less";
+import '../styles/globals.less'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
