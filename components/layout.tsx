@@ -31,7 +31,7 @@ export default function Layout({ children }: any) {
                         <Menu mode="horizontal">
                             <Menu.Item>ABOUT</Menu.Item>
                             <Menu.Item>GIVE SUPPORT</Menu.Item>
-                            <Button ghost>BUY PRO</Button>
+                            <Menu.Item><Button ghost>BUY PRO</Button></Menu.Item>
                         </Menu>
                     </div>
                 </div>
