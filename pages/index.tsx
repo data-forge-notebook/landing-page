@@ -1,16 +1,9 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import Link from "next/link"
 import Layout from '../components/layout'
 
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet"></link>
-      </Head>
 
       <main>
           Hello!

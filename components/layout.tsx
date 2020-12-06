@@ -1,4 +1,5 @@
 import { Button, Layout as AntLayout, Menu } from "antd";
+import Head from "next/head";
 import Link from "next/link";
 
 const { Header, Content, Footer } = AntLayout;
@@ -6,6 +7,11 @@ const { Header, Content, Footer } = AntLayout;
 export default function Layout({ children }: any) {
     return (
         <AntLayout>
+            <Head>
+                <title>Create Next App</title>
+                <link rel="icon" href="/favicon.ico" />
+                <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet"></link>
+            </Head>
 
             <div className="bg-black text-white text-center pt-4 pb-4">
                 {/*TODO: Only show this on the main page! */ }
