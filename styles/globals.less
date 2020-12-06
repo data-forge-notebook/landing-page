@@ -15,10 +15,21 @@ a {
   box-sizing: border-box;
 } */
 
+@bgcolor: #4182e4;
+@textcolor: white;
+
+@footerbgcolor: #2b2b40;
+@footertextcolor: #666;
+
+@headermenu: rgba(255, 255, 255, 0.8);
+@headermenuhover: white;
+
+
+
 body {
     font-family: 'Noto Sans','Roboto', sans-serif;
-    background-color: #4182e4;
-    color: white;
+    background-color: @bgcolor;
+    color: @textcolor;
 }
 
 /*
@@ -36,8 +47,8 @@ Reset some Ant styles that don't work too well.
 }
 
 .ant-layout-footer {
-    color: #666;
-    background-color: #2b2b40;
+    color: @footertextcolor;
+    background-color: @footerbgcolor;
 }
 
 .header {
@@ -46,31 +57,32 @@ Reset some Ant styles that don't work too well.
     }
     
     .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover {
-        color: white;
-        border-color: white;
+        color: @textcolor;
+        border-color: @textcolor;
     }
    
     .ant-menu {
-        color: rgba(255, 255, 255, 0.8);
+        color: @headermenu;
     }
 
     .ant-btn {
-        color: rgba(255, 255, 255, 0.8);
+        color: @headermenu;
+        background-color: transparent;
+
+        &:active, &:hover, &:focus {
+            color: @headermenuhover;
+            border-color: @headermenuhover !important;
+        }
     }
 
     .ant-menu-horizontal {
         border-bottom: none;
     }
     
-    .ant-btn:active {
-        color: white;
-        border-color: white;
+    .ant-submenu-title {
+        color: @textcolor;
     }
-    
-    .ant-btn:hover {
-        color: white;
-        border-color: white;
-    }
+
 }
 
 /* @tailwind base; */
