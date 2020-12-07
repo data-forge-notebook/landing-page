@@ -1,19 +1,16 @@
-import { Button, Layout as AntLayout, Menu } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 
-const { Header, Content, Footer } = AntLayout;
-
 export default function Layout({ children }: any) {
     return (
-        <AntLayout>
+        <div>
             <Head>
                 <title>Create Next App</title>
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet"></link>
             </Head>
 
-            <div className="bg-black text-white text-center pt-4 pb-4">
+            <div className="message flex flex-col items-center justify-center bg-black text-sm text-center p-4">
                 {/*TODO: Only show this on the main page! */ }
                 <div>
                     Sign up with your email address to get the free version of Data-Forge Notebook.
@@ -23,32 +20,29 @@ export default function Layout({ children }: any) {
                 </div>
             </div>
 
-            <Header className="header">
-                <div className="flex flex-col">
+            <header>
+                <nav className="flex flex-col">
                     <div className="flex flex-row items-center">
                         <img 
+                            className="logo"
                             src="images/logo.png" 
                             alt="Data-Forge Notebook Logo" 
-                            style={{
-                                height: "33px",
-                            }}
                             />
                         <div className="flex-grow" />
-                        <Menu mode="horizontal">
-                            <Menu.Item>ABOUT</Menu.Item>
-                            <Menu.Item>GIVE SUPPORT</Menu.Item>
-                            <Menu.Item><Button>BUY PRO</Button></Menu.Item>
-                        </Menu>
+                        <a href="/#about">About</a>
+                        <Link href="https://github.com/data-forge-notebook/wiki/wiki/give-support"><a target="_blank">Give support</a></Link>
+                        <Link href="/product"><a className="action-button">Buy Pro</a></Link>
                     </div>
-                </div>
-                
-            </Header>
-            <Content>
+                </nav>                
+            </header>
+
+            <main>
                 {children}
-            </Content>
-            <Footer className="text-center pt-16 pb-16">
+            </main>
+
+            <footer className="text-center pt-16 pb-16">
                 © 2020 Code Capers 
-            </Footer>
-        </AntLayout>
+            </footer>
+        </div>
     );
 }

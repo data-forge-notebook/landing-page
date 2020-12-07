@@ -1,12 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @bgcolor: #4182e4;
-@textcolor: white;
+@textcolor: rgb(238, 238, 238);
+@highlightcolor: white;
 
 @footerbgcolor: #2b2b40;
 @footertextcolor: #666;
 
-@headermenu: rgba(255, 255, 255, 0.8);
-@headermenuhover: white;
+@headerTextColor: rgba(255,255,255,0.8);
+@headerTextHoverColor: white;
 
 
 body {
@@ -15,6 +19,72 @@ body {
     color: @textcolor;
 }
 
-/* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+img {
+    width: auto;
+}
+
+a {
+    text-decoration: underline;
+
+    &:hover {
+        color: @highlightcolor;
+    }
+}
+
+.message {
+
+    /*todo:
+    .flex
+    .flex-col 
+    .items-center 
+    .justify-center 
+    .bg-black 
+    .text-white 
+    .text-sm 
+    .text-center 
+    .p-4
+    */
+}
+
+header {
+    
+    padding: 20px;
+
+    .logo {
+        display: none;
+        height: 40px;
+
+        @media (min-width: 500px) {
+			display: inline;
+		}
+    }
+   
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 0 3px;
+        border-bottom: 1px solid transparent;
+        color: @headerTextColor;
+        transition: .2s ease-in-out;
+        padding: 10px;    
+
+        &:hover {
+            border-bottom: 1px solid @headerTextHoverColor;
+            color: @headerTextHoverColor;    
+        }
+    }
+
+    .action-button {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(204, 204, 204);
+        border-image: initial;
+        border-radius: 5px;    
+
+        &:hover {
+            color: @bgcolor;
+            background: @highlightcolor;
+        }
+    }
+
+}
