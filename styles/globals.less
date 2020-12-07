@@ -9,64 +9,10 @@
 @headermenuhover: white;
 
 
-
 body {
     font-family: 'Noto Sans','Roboto', sans-serif;
     background-color: @bgcolor;
     color: @textcolor;
-}
-
-/*
-Reset some Ant styles that don't work too well. 
-*/
-
-.ant-layout {
-    background-color: transparent;
-}
-
-.ant-layout-header {
-    color: inherit;
-    background-color: transparent;
-    height: auto;
-}
-
-.ant-layout-footer {
-    color: @footertextcolor;
-    background-color: @footerbgcolor;
-}
-
-.header {
-    .ant-menu {
-        background-color: transparent;
-    }
-    
-    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover {
-        color: @textcolor;
-        border-color: @textcolor;
-    }
-   
-    .ant-menu {
-        color: @headermenu;
-    }
-
-    .ant-btn {
-        color: @headermenu;
-        background-color: transparent;
-
-        &:active, &:hover, &:focus {
-            color: @headermenuhover;
-            border-color: @headermenuhover !important;
-        }
-    }
-
-    .ant-menu-horizontal {
-        border-bottom: none;
-    }
-    
-    .ant-submenu-title {
-        color: @textcolor;
-    }
-
 }
 
 /* @tailwind base; */

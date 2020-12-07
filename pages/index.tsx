@@ -1,4 +1,3 @@
-import { Image } from "antd"
 import Link from "next/link"
 import Layout from '../components/layout'
 
@@ -14,7 +13,7 @@ export default function Home() {
           <section>
               Hero
 
-              <Image 
+              <img
                 src="images/screenshots/Main.png" 
                 width={600}
                 />
