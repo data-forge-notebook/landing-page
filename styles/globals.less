@@ -90,64 +90,138 @@ header {
 
 }
 
-.hero {
+.narrow-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 750px;
+}
+
+.wide-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1000px;
+}
+
+/* Zoomable images */
+
+.full-image-container {
+    position: relative;
+    display: none;
+}
+
+.zoomable-image input[type=checkbox]:checked ~ .full-image-container {
+    display: block;
+}
+
+.full-image-container .full-image {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    cursor: zoom-out;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 10;
+}
+
+.full-image-container .full-image img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);    
+    max-width: 85%;
+    background-color: white;
+    padding: 8px;
+    max-height: 85%;
+    width: auto;
+    height: auto;
+}
+
+/* Sections */
+
+.blue {
     width: 100%;
+    padding: 20px;
 
-    .container {
-
-        margin: 0 auto;
-        padding: 0 5px;
-        max-width: 750px;
-        
-        .logo {
-            max-width: 350px;
-            margin: 0px auto 25px;    
-        }
-    
-        .title {
-            font-weight: 300;
-            font-size: 2em;
-            max-width: 600px;
-        }
-    
-        .action-button {
-            margin: 60px 0px;
-            padding: 12px;
-            text-decoration: none;
-            transition: all 0.2s ease-in-out 0s;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 3px;
-            font-size: 1.3em;
-            border-width: 1.5px;
-            border-style: solid;
-            border-color: rgba(255, 255, 255, 0.3);
-            border-image: initial;
-    
-            &:hover {
-                background: rgba(255, 255, 255, 0.224);
-                }
-        }
-    
-        .vid-container {
-            position: relative;
-            padding-bottom: 50%;
-            padding-top: 35px;
-            height: 0;
-            overflow: hidden;
-            width: 100%;
-
-            iframe {
-                border-top-width: 0px;
-                border-right-width: 0px;
-                border-bottom-width: 0px;
-                border-left-width: 0px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
+    .logo {
+        max-width: 350px;
+        margin: 0px auto 25px;    
     }
 
+    .title {
+        font-weight: 300;
+        font-size: 2em;
+        max-width: 600px;
+    }
+
+    .action-button {
+        margin: 60px 0px;
+        padding: 12px;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out 0s;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+        font-size: 1.3em;
+        border-width: 1.5px;
+        border-style: solid;
+        border-color: rgba(255, 255, 255, 0.3);
+        border-image: initial;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.224);
+            }
+    }
+
+    .vid-container {
+        position: relative;
+        padding-bottom: 50%;
+        padding-top: 35px;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+
+        iframe {
+            border-top-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 0px;
+            border-left-width: 0px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.white {
+    padding: 100px 0;
+    background-color: #F1F1F1;
+    color: black;
+
+    .zoomable-image {
+        max-width: 400px;        
+
+        input[type="checkbox"] {
+            display: none;            
+        }
+
+        img {
+            font-family: "Noto Sans", Roboto, sans-serif;
+            width: 100%;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(160, 174, 192);
+            border-image: initial;
+            border-radius: 3px;
+            cursor: zoom-in;            
+        }
+    }
 }
