@@ -106,42 +106,47 @@ header {
     max-width: 1000px;
 }
 
-/* Zoomable images */
+/* 
+ * Zoomable images 
+ */
 
-.full-image-container {
-    position: relative;
-    display: none;
-}
-
+/* Enables the full image when checked. */
 .zoomable-image input[type=checkbox]:checked ~ .full-image-container {
     display: block;
 }
 
-.full-image-container .full-image {
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-    cursor: zoom-out;
-    background-color: rgba(0, 0, 0, 0.65);
-    z-index: 10;
-}
+.zoomable-image {
+    .full-image-container {
+        position: relative;
+        display: none;
 
-.full-image-container .full-image img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);    
-    max-width: 85%;
-    background-color: white;
-    padding: 8px;
-    max-height: 85%;
-    width: auto;
-    height: auto;
+        .full-image {
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            cursor: zoom-out;
+            background-color: rgba(0, 0, 0, 0.65);
+            z-index: 10;
+
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);    
+                max-width: 85%;
+                background-color: white;
+                padding: 8px;
+                max-height: 85%;
+                width: auto;
+                height: auto;
+            }            
+        }
+    }
 }
 
 /* Sections */

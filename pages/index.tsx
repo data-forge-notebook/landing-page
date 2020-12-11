@@ -4,8 +4,8 @@ import Layout from '../components/layout'
 function ZoomableImage({ src }: { src: string }) {
     return (
         <div className="zoomable-image">
-            <input type="checkbox" id="zoomCheck2" />
-            <label htmlFor="zoomCheck2">
+            <input type="checkbox" id="zoomableImageCheck" />
+            <label htmlFor="zoomableImageCheck">
                 <img 
                     src={src} 
                     alt="Screenshot" 
@@ -14,7 +14,7 @@ function ZoomableImage({ src }: { src: string }) {
             </label>
             <div className="full-image-container">  
                 <label 
-                    htmlFor="zoomCheck2"
+                    htmlFor="zoomableImageCheck"
                     className="full-image"
                     >
                     <img src={src} alt="Screenshot" />
