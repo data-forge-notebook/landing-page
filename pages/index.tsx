@@ -11,6 +11,7 @@ function ZoomableImage({ src }: { src: string }) {
                     alt="Screenshot" 
                     className="screenshot"
                     />
+                <div className="text-center text-sm">Click to zoom</div>
             </label>
             <div className="full-image-container">  
                 <label 
@@ -45,6 +46,7 @@ export default function Home() {
                         >
                     </iframe>
                 </div>
+
                 <a 
                     className="mt-2"
                     target="_blank" 
