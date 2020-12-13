@@ -5,7 +5,7 @@ export default function Layout({ children }: any) {
     return (
         <div>
             <Head>
-                <title>Create Next App</title>
+                <title>Data-Forge Notebook: Exploratory coding and visualization for JS/TS</title>
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet"></link>
             </Head>
