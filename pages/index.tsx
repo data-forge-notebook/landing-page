@@ -65,7 +65,7 @@ export default function Home() {
         <section className="white pt-16 pb-16 text-left">
             <div className="wide-container flex flex-row items-center">
                 <div className="flex-grow pr-4">
-                    <p className="text-2xl">Want to do visual prototyping and exploratory data analysis?</p>
+                    <p className="text-2xl text-black">Want to do visual prototyping and exploratory data analysis?</p>
                     <p className="mt-2 text-xl text-gray-600">But you need to work in JavaScript</p>
                 </div>
 
@@ -84,14 +84,14 @@ export default function Home() {
                     />
 
                 <div className="flex-grow pl-4">
-                    <p className="text-2xl">Love the idea of Notebook-style or literate programing?</p>
+                    <p className="text-2xl text-black">Love the idea of Notebook-style or literate programing?</p>
                     <p className="mt-2 text-xl text-gray-600">But your production environment is JavaScript</p>
                 </div>
             </div>
 
             <div className="wide-container flex flex-row items-center mt-10">
                 <div className="flex-grow pr-4">
-                    <p className="text-2xl">Learning JavaScript?</p>
+                    <p className="text-2xl text-black">Learning JavaScript?</p>
                     <p className="mt-2 text-xl text-gray-600">Data-Forge Notebook offers a friendly and forgiving environment that includes Node.js, automatically installs npm modules, has zero configuration and just works.</p>
                     <p className="mt-2 text-xl text-gray-600">Just fire it up and start coding</p>
                 </div>
