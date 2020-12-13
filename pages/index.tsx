@@ -1,9 +1,14 @@
 import Link from "next/link"
 import Layout from '../components/layout'
 
-function ZoomableImage({ src }: { src: string }) {
+function ZoomableImage({ src, maxWidth }: { src: string, maxWidth?: number }) {
     return (
-        <div className="zoomable-image">
+        <div 
+            className="zoomable-image"
+            style={{
+                maxWidth: maxWidth,
+            }}
+            >
             <input type="checkbox" id="zoomableImageCheck" />
             <label htmlFor="zoomableImageCheck">
                 <img 
@@ -66,6 +71,7 @@ export default function Home() {
 
                 <ZoomableImage
                     src="/images/screenshots/Screenshot_1.png"
+                    maxWidth={400}
                     />
                 
             </div>
@@ -74,6 +80,7 @@ export default function Home() {
 
                <ZoomableImage
                     src="/images/screenshots/Screenshot_2.png"
+                    maxWidth={400}
                     />
 
                 <div className="flex-grow pl-4">
@@ -91,6 +98,7 @@ export default function Home() {
 
                 <ZoomableImage
                     src="/images/screenshots/Screenshot_3.png"
+                    maxWidth={400}
                     />
 
             </div>
@@ -178,13 +186,24 @@ export default function Home() {
             </div>
         </section>
 
-        <section>
-            About
-        </section>
+        <section className="blue pt-16 pb-16">
+            <div className="narrow-container flex flex-col items-center text-xl">
+                <div className="logo">
+                    <img src="/images/logo.png" alt="Data-Forge Notebook logo" />
+                </div>
+            
+                <p className="mt-3">Convenient and accessible. Like a REPL on steroids.</p>
+                <p className="mt-2">Live visualizations as you code</p>
+                <p className="mt-2">Export to runnable Node.js code and other formats</p>
 
-        <section>
-            Contact
-        </section>
+                <Link href="/product"><a className="action-button">Buy Data-Forge Notebook Pro!</a></Link>
+
+                <ZoomableImage
+                    src="/images/screenshots/Main.png" 
+                    />
+
+            </div>
+        </section>    
 
     </Layout>
   )
