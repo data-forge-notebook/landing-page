@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Layout from '../components/layout'
 
-function ZoomableImage({ src, maxWidth }: { src: string, maxWidth?: number }) {
+function ZoomableImage({ src, width }: { src: string, width?: number }) {
     return (
         <div 
             className="zoomable-image"
             style={{
-                maxWidth: maxWidth,
+                width: width,
             }}
             >
             <input type="checkbox" id="zoomableImageCheck" />
@@ -63,44 +63,55 @@ export default function Home() {
         </section>
 
         <section className="white pt-16 pb-16 text-left">
-            <div className="wide-container flex flex-row items-center">
+            <div className="wide-container flex flex-col items-center md:flex-row">
                 <div className="flex-grow pr-4">
                     <p className="text-2xl text-black">Want to do visual prototyping and exploratory data analysis?</p>
                     <p className="mt-2 text-xl text-gray-500">But you need to work in JavaScript</p>
                 </div>
 
-                <ZoomableImage
-                    src="images/screenshots/Screenshot_1.png"
-                    maxWidth={400}
-                    />
-                
+                <div className="mt-4 md:mt-0">
+                    <ZoomableImage
+                        src="images/screenshots/Screenshot_1.png"
+                        width={300}
+                        />
+                </div>                
             </div>
 
-            <div className="wide-container flex flex-row items-center mt-10">
+            <div className="wide-container flex flex-col items-center md:flex-row mt-10">
 
-               <ZoomableImage
-                    src="images/screenshots/Screenshot_2.png"
-                    maxWidth={400}
-                    />
+                <div className="hidden md:flex">
+                    <ZoomableImage
+                        src="images/screenshots/Screenshot_2.png"
+                        width={300}
+                        />
+                </div>
 
                 <div className="flex-grow pl-4">
                     <p className="text-2xl text-black">Love the idea of Notebook-style or literate programing?</p>
                     <p className="mt-2 text-xl text-gray-500">But your production environment is JavaScript</p>
                 </div>
+
+                <div className="mt-4 md:mt-0 md:hidden">
+                    <ZoomableImage
+                        src="images/screenshots/Screenshot_2.png"
+                        width={300}
+                        />
+                </div>
             </div>
 
-            <div className="wide-container flex flex-row items-center mt-10">
+            <div className="wide-container flex flex-col items-center md:flex-row mt-10">
                 <div className="flex-grow pr-4">
                     <p className="text-2xl text-black">Learning JavaScript?</p>
                     <p className="mt-2 text-xl text-gray-500">Data-Forge Notebook offers a friendly and forgiving environment that includes Node.js, automatically installs npm modules, has zero configuration and just works.</p>
                     <p className="mt-2 text-xl text-gray-500">Just fire it up and start coding</p>
                 </div>
 
-                <ZoomableImage
-                    src="images/screenshots/Screenshot_3.png"
-                    maxWidth={400}
-                    />
-
+                <div className="mt-4 md:mt-0">
+                    <ZoomableImage
+                        src="images/screenshots/Screenshot_3.png"
+                        width={300}
+                        />
+                </div>
             </div>
         </section>
 
