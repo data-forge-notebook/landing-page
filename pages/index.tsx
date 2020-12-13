@@ -205,6 +205,164 @@ export default function Home() {
             </div>
         </section>    
 
+        <section className="about white pt-16 pb-16" id="about">
+            <div className="narrow-container text-left">
+                <div className="text-3xl">About Data-Forge Notebook</div>
+                <div className="mt-4">
+                    <p>Data-Forge Notebook is a desktop application for Windows, Mac and Linux.</p>
+                    <p>Prototype JavaScript code in a highly visual fashion.</p>
+                    <p>It makes data transformation, analysis and visualization a breeze.</p>
+                    <p>
+                        Own Data-Forge Notebook Pro version 1 (and upgrades) for a one off payment of $50 USD. 
+                        You may install it on as many computers as you like (although you can't share your licence key with others).
+                    </p>
+                    <p>Don't be tied to someone's hosted solution, get the desktop application: maintain privacy for your code and data, work off-line whenever you want.</p>
+
+                    <div className="text-xl text-bold">Free features</div>
+                    <ul>
+                        <li>
+                            Create JavaScript notebooks
+                        </li>
+                        <li>
+                            Code using the latest JavaScript features
+                        </li>
+                        <li>
+                            Full language support, anything you can do in Node.js you can also do in Data-Forge Notebook (but with live visualizations!)
+                        </li>
+                        <li>
+                            Zero configuration, just install and start coding
+                        </li>
+                        <li>
+                            Visualize JavaScript & JSON data, tabular data, charts, geographic data and more
+                        </li>
+                        <li>
+                            Node.js v12 is included, no separate download, setup or installation is required
+                        </li>
+                        <li>
+                            Npm modules are automatically installed as you type require and import statements
+                        </li>
+                        <li>
+                            Reuse your own Node.js code modules
+                        </li>
+                        <li>
+                            Supports various data formats and databases
+                        </li>
+                        <li>
+                            Direct access to your local file system for loading and saving data
+                        </li>
+                        <li>
+                            Easily plot charts from your data
+                        </li>
+                        <li>
+                            Visualize maps and geo data
+                        </li>
+                        <li>
+                            Numerous example notebooks to help you get started
+                        </li>
+                    </ul>
+
+                    <div className="text-xl text-bold">Pro features</div>
+                    <ul>
+                        <li>
+                            As above; plus...
+                        </li>
+            
+                        <li>
+                            Create TypeScript notebooks and code using the TypeScript language
+                        </li>
+                        <li>
+                            Expanded memory limits, access up to 10GB from your notebooks
+                        </li>
+                        <li>
+                            Export to various formats:
+                            <ul>
+                                <li>
+                                    Web or markdown - host your notebooks on any server or include them in your blog
+                                </li>
+                                <li>
+                                    Single code file - export your notebook as runnable JavaScript or TypeScript code
+                                </li>
+                                <li>
+                                    Node.js - export as a production ready Node.js project, complete with build pipeline for ES Next (using Babel) or TypeScript.
+                                </li>
+                                <li>
+                                    PNG or PDF files - great for printing student handouts
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Save images of individual outputs (charts, geo, tables, etc) - great for creating graphics for your blog
+                        </li>
+                        <li>
+                            Export cell outputs to data files
+                        </li>
+                        <li>
+                            Portable versions of the application (delivery in a zip/tar file).
+                        </li>
+                        <li>
+                            Built-in Node.js version manager.
+                        </li>
+                        <li>
+                            Built-in npm package manager and package search.
+                        </li>
+                    </ul>
+
+                    <p>
+                        <a target="_blank" href="https://wiki.data-forge-notebook.com/road-map">See the road map for future plans!</a>
+                    </p>
+
+                    <p><a href="mailto:support@data-forge-notebook.com" target="_blank" >Please email</a> and let me know which future features are important to you!</p>
+
+                    <p>
+                        Want to know how it's different to Jupyter Notebook + IJavaScript? 
+                        <a href="https://github.com/data-forge-notebook/wiki/wiki/differences-to-ijavascript" target="_blank">Read this</a>
+                    </p>
+
+                    <p>
+                        Decide later that it isn't for you? Let me know within 30 days and you'll get a full refund.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section className="about white pt-16 pb-16">
+            <div className="narrow-container">
+
+                <div className="text-3xl">About the developer</div>
+
+                <p>
+                    Data-Forge Notebook is bought to you by <a target="_blank" href="https://www.codecapers.com.au">Ashley Davis</a>,
+                    creator of <a target="_blank" href="http://www.data-forge-js.com">Data-Forge</a> and author of <a target="_blank" href="http://bit.ly/2t2cJu2">Data Wrangling with JavaScript</a> and <a target="_blank" href="http://bit.ly/2o0aDsP">Bootstrapping Microservices</a>.
+                </p>
+
+                <div>
+                    <div className="profile-image">
+                        <img src="/images/New-reduced.jpg" alt="Ashley Davis" />
+                    </div>
+                    <blockquote className="pt-4">
+                        <p>I always kickstart my JavaScript coding with Data-Forge Notebook. I can see visual results immediately while I'm coding and it makes it easy to understand what's going on in the code.</p>
+                        <p className="author">Ashley Davis, Developer of Data-Forge Notebook</p>
+                    </blockquote>
+                </div>
+
+            </div>
+        </section>        
+
+        <section className="blue pt-16">
+            <div className="narrow-container flex flex-col items-center">
+                <img className="logo" src="/images/logo.png" alt="Data-Forge Notebook logo" />
+                <div className="text-3xl">
+                    Exploratory coding and data analysis for JavaScript and TypeScript
+                </div>
+                <Link href="/product"><a className="action-button">Buy Data-Forge Notebook Pro!</a></Link>
+                <p>Want to donate to, support or sponsor Data-Forge Notebook?</p>
+                <p>Have questions?</p>
+                <p>Looking for a student discount or volume licencing?</p>
+                <p>Email on <a href="mailto:support@data-forge-notebook.com" target="_blank">support@data-forge-notebook.com</a></p>
+                <p>Follow on Twitter at <a href="https://twitter.com/ashleydavis75" target="_blank">@ashleydavis75</a>.</p>
+            </div>
+        </section>
+
     </Layout>
   )
 }

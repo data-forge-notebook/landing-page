@@ -24,44 +24,12 @@ img {
     width: auto;
 }
 
-blockquote {
-
-    p {
-        font-style: italic;
-        font-size: 1.38em;
-        color: #666;
-        font-weight: 300;
-    }
-
-    .author {
-        margin-top: .75em;
-        color: #666;
-        font-weight: bold;
-        font-size: .85em;
-    }
-}
-
 a {
     text-decoration: underline;
 
     &:hover {
         color: @highlightcolor;
     }
-}
-
-.message {
-
-    /*todo:
-    .flex
-    .flex-col 
-    .items-center 
-    .justify-center 
-    .bg-black 
-    .text-white 
-    .text-sm 
-    .text-center 
-    .p-4
-    */
 }
 
 header {
@@ -183,6 +151,13 @@ header {
 /* Sections */
 
 .blue {
+    p {
+        font-size: 1.38em;
+        margin-top: 20px;
+        font-weight: 300;
+        line-height: 1.4em;        
+    }
+
     .logo {
         max-width: 350px;
         margin: 0px auto 25px;    
@@ -237,5 +212,79 @@ header {
 .white {
     background-color: #F1F1F1;
     color: black;
+
+    a {
+        color: #4182E4;        
+
+        &:hover {
+            color: blue;            
+        }
+    }
+
+    p {
+        font-size: 1.38em;
+        color: #666;
+        margin-top: 20px;
+        font-weight: 300;
+        line-height: 1.4em;        
+    }
+    
+    blockquote {
+    
+        p {
+            font-style: italic;
+            font-size: 1.38em;
+            color: #666;
+            font-weight: 300;
+        }
+    
+        .author {
+            margin-top: .75em;
+            color: #666;
+            font-weight: bold;
+            font-size: .85em;
+        }
+    }
+   
 }
+
+.about {
+
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    li {
+        display: list-item;
+        list-style-type: disc;
+    }
+
+    .profile-image {
+        font-family: 'Noto Sans','Roboto', sans-serif;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 25px auto 0 auto;
+        position: relative;
+        border-radius: 200px;
+
+        img {
+            font-family: 'Noto Sans','Roboto', sans-serif;
+            position: absolute;
+            left: -1000%;
+            right: -1000%;
+            top: -1000%;
+            bottom: -1000%;
+            margin: auto;
+            width: 180px;
+        }
+    }
+}
+
 
