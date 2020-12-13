@@ -31,7 +31,7 @@ export default function Home() {
         <section className="blue">
             <div className="narrow-container flex flex-col items-center">
                 <img className="logo" src="/images/logo.png" alt="Data-Forge Notebook logo" />
-                <div className="title">
+                <div className="text-3xl">
                     Exploratory coding and data analysis for JavaScript and TypeScript
                 </div>
                 <Link href="/product"><a className="action-button">Buy Data-Forge Notebook Pro!</a></Link>
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="white text-left ">
+        <section className="white pt-16 pb-8 text-left">
             <div className="wide-container flex flex-row items-center">
                 <div className="flex-grow pr-4">
                     <p className="text-2xl">Want to do visual prototyping and exploratory data analysis?</p>
@@ -96,11 +96,44 @@ export default function Home() {
             </div>
         </section>
 
-        <section>
-            Examples
+        <section className="blue pt-16 pb-8 text-left">
+            <div className="narrow-container">
+                <div className="text-3xl">Example notebooks</div>
+                <p className="mt-8">
+                    Data-Forge Notebook includes many example notebooks to help you get started and working 
+                    quickly with JavaScript.
+                </p>
+
+                <p className="mt-4">
+                    Click these links to see example exported notebooks:
+                </p>
+                
+                <ul className="mt-4 list-disc list-inside">
+                    <li>
+                        Examples of Data-Forge Notebook visualizations exported to
+                        <ul className="list-disc list-inside pl-8">
+                            <li>
+                                <a href="https://data-forge-notebook.github.io/visualization-examples/" target="_blank">a web page</a>
+                            </li>
+                            <li>
+                                <a href="https://wiki.data-forge-notebook.com/visualizing-data" target="_blank">to markdown</a>
+                            </li>                        
+                        </ul>
+                    </li>
+                    <li className="mt-1">
+                        <a href="http://jscheatsheet.the-data-wrangler.com" target="_blank">JavaScript cheat sheet (HTML)</a>
+                    </li>
+                    <li className="mt-1">
+                        <a href="http://dfcheatsheet.the-data-wrangler.com" target="_blank">Data-Forge cheat sheet (HTML)</a>
+                    </li>
+                    <li className="mt-1">
+                        <a href="https://gist.github.com/ashleydavis/244b8f7ef91a36b7f8e1b2f0dd90c6f5" target="_blank">Backtesting a trading strategy (markdown format)</a>
+                    </li>
+                </ul>
+            </div>
         </section>
 
-        <section>
+        <section className="white">
             Overview
         </section>
 
