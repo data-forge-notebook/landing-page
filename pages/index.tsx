@@ -35,7 +35,7 @@ export default function Home() {
     <Layout>
         <section className="blue pb-16">
             <div className="narrow-container flex flex-col items-center">
-                <img className="logo" src="/images/logo.png" alt="Data-Forge Notebook logo" />
+                <img className="logo" src="images/logo.png" alt="Data-Forge Notebook logo" />
                 <div className="text-3xl">
                     Exploratory coding and data analysis for JavaScript and TypeScript
                 </div>
@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
 
                 <ZoomableImage
-                    src="/images/screenshots/Screenshot_1.png"
+                    src="images/screenshots/Screenshot_1.png"
                     maxWidth={400}
                     />
                 
@@ -79,7 +79,7 @@ export default function Home() {
             <div className="wide-container flex flex-row items-center mt-10">
 
                <ZoomableImage
-                    src="/images/screenshots/Screenshot_2.png"
+                    src="images/screenshots/Screenshot_2.png"
                     maxWidth={400}
                     />
 
@@ -97,7 +97,7 @@ export default function Home() {
                 </div>
 
                 <ZoomableImage
-                    src="/images/screenshots/Screenshot_3.png"
+                    src="images/screenshots/Screenshot_3.png"
                     maxWidth={400}
                     />
 
@@ -189,7 +189,7 @@ export default function Home() {
         <section className="blue pt-16 pb-16">
             <div className="narrow-container flex flex-col items-center text-xl">
                 <div className="logo">
-                    <img src="/images/logo.png" alt="Data-Forge Notebook logo" />
+                    <img src="images/logo.png" alt="Data-Forge Notebook logo" />
                 </div>
             
                 <p className="mt-3">Convenient and accessible. Like a REPL on steroids.</p>
@@ -199,7 +199,7 @@ export default function Home() {
                 <Link href="/product"><a className="action-button">Buy Data-Forge Notebook Pro!</a></Link>
 
                 <ZoomableImage
-                    src="/images/screenshots/Main.png" 
+                    src="images/screenshots/Main.png" 
                     />
 
             </div>
@@ -337,7 +337,7 @@ export default function Home() {
 
                 <div>
                     <div className="profile-image">
-                        <img src="/images/New-reduced.jpg" alt="Ashley Davis" />
+                        <img src="images/New-reduced.jpg" alt="Ashley Davis" />
                     </div>
                     <blockquote className="pt-4">
                         <p>I always kickstart my JavaScript coding with Data-Forge Notebook. I can see visual results immediately while I'm coding and it makes it easy to understand what's going on in the code.</p>
@@ -350,7 +350,7 @@ export default function Home() {
 
         <section className="blue pt-16">
             <div className="narrow-container flex flex-col items-center">
-                <img className="logo" src="/images/logo.png" alt="Data-Forge Notebook logo" />
+                <img className="logo" src="images/logo.png" alt="Data-Forge Notebook logo" />
                 <div className="text-3xl">
                     Exploratory coding and data analysis for JavaScript and TypeScript
                 </div>
