@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "//cdn-images.mailchimp.com/embedcode/slim-10_7.css";
+
 @bgcolor: #4182e4;
 @textcolor: rgb(238, 238, 238);
 @highlightcolor: white;
@@ -286,4 +288,48 @@ header {
     }
 }
 
+
+/* Email sign up */
+
+@keyframes keyframes {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+#signup {
+    color: black;
+    position: fixed; 
+    bottom: -175px; 
+    left: 20px;
+    z-index: 1000; 
+    width: 300px;
+    transition: bottom 0.3s ease-out;
+    cursor: pointer;
+}
+
+#signup label {
+    cursor: pointer;
+}
+
+#signup.show {
+    bottom: 10px;
+    transition: bottom 0.3s ease-in;
+}
+
+#signup.pulse {
+    animation: keyframes 0.3s ease-in-out;
+}
 
