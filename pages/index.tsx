@@ -79,7 +79,7 @@ export default class Home extends React.Component<{}, { show: boolean, pulse: bo
 
     render() {
         return (
-            <Layout>
+            <Layout showMessage>
                 <div className="relative">
                     <section className="blue pb-16">
                         <div className="narrow-container flex flex-col items-center">
