@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import "./product.less";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { debounce } from 'lodash';
 
 var baseApiUrl = "https://api.data-forge-notebook.com";
 // var baseApiUrl = "http://localhost:80";
@@ -25,30 +26,29 @@ export default function Product() {
         setDiscountCode(query.discount as string);
     }
 
-    useEffect(
-        () => {
-            if (discountCode === "") {
-                setDiscountMsg(defaultDiscountMsg);
-                return;
-            }
+    function onDiscountCodeUpdated() {
+        if (discountCode === "") {
+            setDiscountMsg(defaultDiscountMsg);
+            return;
+        }
 
-            const url = baseApiUrl + "/discount-code?code=" + discountCode;
-            axios.get(url)
-                .then(response => {
-                    if (response.data.ok) {
-                        setDiscountMsg(`You have a discount of ${response.data.discount.toString()}% which means you'll pay ${response.data.payment.toString()} USD.`);
-                    }
-                    else {
-                        setDiscountMsg(`Your discount code isn't valid.`);
-                    }
-                })
-                .catch(err => {
-                    console.error(`An error occurred retreiving querying server for discount code ${discountCode}.`);
-                    console.error(err && err.stack || err);
-                });
-        }, 
-        [discountCode]
-    );
+        const url = baseApiUrl + "/discount-code?code=" + discountCode;
+        axios.get(url)
+            .then(response => {
+                if (response.data.ok) {
+                    setDiscountMsg(`You have a discount of ${response.data.discount.toString()}% which means you'll pay ${response.data.payment.toString()} USD.`);
+                }
+                else {
+                    setDiscountMsg(`Your discount code isn't valid.`);
+                }
+            })
+            .catch(err => {
+                console.error(`An error occurred retreiving querying server for discount code ${discountCode}.`);
+                console.error(err && err.stack || err);
+            });
+    }
+
+    useEffect(debounce(onDiscountCodeUpdated, 200), [discountCode]);
 
     return (
         <Layout>
