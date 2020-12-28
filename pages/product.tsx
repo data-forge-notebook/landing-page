@@ -1,15 +1,22 @@
 import Layout from '../components/layout'
 import { useRouter } from 'next/router'
 import "./product.less";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+var baseApiUrl = "https://api.data-forge-notebook.com";
+// var baseApiUrl = "http://localhost:80";
+
+const defaultDiscountMsg = "If you have a discount code please enter it here";
 
 export default function Product() {
 
     const router = useRouter()
     const query = router.query;
     const [ email, setEmail ] = useState("");
-    const [ discountCode, setDiscountCode ] = useState("");
+    const [ discountMsg, setDiscountMsg ] = useState(defaultDiscountMsg);
 
+    const [ discountCode, setDiscountCode ] = useState("");
     if (email === "" && query.email) {
         setEmail(query.email as string);
     }
@@ -17,6 +24,31 @@ export default function Product() {
     if (discountCode === "" && query.discount) {
         setDiscountCode(query.discount as string);
     }
+
+    useEffect(
+        () => {
+            if (discountCode === "") {
+                setDiscountMsg(defaultDiscountMsg);
+                return;
+            }
+
+            const url = baseApiUrl + "/discount-code?code=" + discountCode;
+            axios.get(url)
+                .then(response => {
+                    if (response.data.ok) {
+                        setDiscountMsg(`You have a discount of ${response.data.discount.toString()}% which means you'll pay ${response.data.payment.toString()} USD.`);
+                    }
+                    else {
+                        setDiscountMsg(`Your discount code isn't valid.`);
+                    }
+                })
+                .catch(err => {
+                    console.error(`An error occurred retreiving querying server for discount code ${discountCode}.`);
+                    console.error(err && err.stack || err);
+                });
+        }, 
+        [discountCode]
+    );
 
     return (
         <Layout>
@@ -74,19 +106,21 @@ export default function Product() {
 
                 <div className="mt-16 discount-code-container">
                     <h3>Discount code</h3>
-                    <p className="mt-0 mb-1">
-                        If you have a discount code please enter it here
-                    </p>
                     <input 
                         className="mt-0"
                         id="discount-code-input"
-                        placeholder="Enter your discount code here"
                         value={discountCode}
+                        placeholder="Enter your discount code here"
                         onChange={evt => setDiscountCode(evt.target.value)}
                         />
+                    <p className="mt-0 mb-1">
+                        
+                    </p>
                 </div>
 
-                <p className="subtext" id="discount-text"></p>
+                <p className="subtext" id="discount-text">
+                    {discountMsg}
+                </p>
 
             </div>
 
