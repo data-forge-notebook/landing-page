@@ -8,9 +8,14 @@ export default function Product() {
     const router = useRouter()
     const query = router.query;
     const [ email, setEmail ] = useState("");
+    const [ discountCode, setDiscountCode ] = useState("");
 
     if (email === "" && query.email) {
         setEmail(query.email as string);
+    }
+
+    if (discountCode === "" && query.discount) {
+        setDiscountCode(query.discount as string);
     }
 
     return (
@@ -75,8 +80,9 @@ export default function Product() {
                     <input 
                         className="mt-0"
                         id="discount-code-input"
-                        onKeyUp={() => { /*todo: "onDiscountCodeChange()" */ }}
                         placeholder="Enter your discount code here"
+                        value={discountCode}
+                        onChange={evt => setDiscountCode(evt.target.value)}
                         />
                 </div>
 
