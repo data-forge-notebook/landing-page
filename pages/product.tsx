@@ -1,7 +1,18 @@
 import Layout from '../components/layout'
+import { useRouter } from 'next/router'
 import "./product.less";
+import { useState } from 'react';
 
 export default function Product() {
+
+    const router = useRouter()
+    const query = router.query;
+    const [ email, setEmail ] = useState("");
+
+    if (email === "" && query.email) {
+        setEmail(query.email as string);
+    }
+
     return (
         <Layout>
             <div className="product">
@@ -12,6 +23,8 @@ export default function Product() {
                     <input 
                         id="email-input"
                         placeholder="Enter your email here"
+                        value={email}
+                        onChange={evt => setEmail(evt.target.value)}
                         />
                     <p>
                         Your email is needed to send you download links and
