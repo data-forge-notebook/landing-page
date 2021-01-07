@@ -4,11 +4,26 @@ import "./product.less";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { debounce } from 'lodash';
+import { loadStripe } from '@stripe/stripe-js';
 
 var baseApiUrl = "https://api.data-forge-notebook.com";
 // var baseApiUrl = "http://localhost:80";
 
 const defaultDiscountMsg = "If you have a discount code please enter it here";
+
+//
+// Load the Stripe API.
+//
+async function _loadStripe() {
+    // SANDBOX
+    // fonst stripe = await loadStripe('pk_test_51H6qptBwAGsxbJSlNebVfem6QNcRHX11OcXtE1XyT9qAXpVP6Nts6FLBfcP0hBoMNaMjAdGCW5Wqvf2lR6z1Dlj800aWQMCCY9');
+
+    // LIVE
+    const stripe = await loadStripe('pk_live_51H6qptBwAGsxbJSl95hGruA0EB6jj8TZmtgC6t032a2Qz30u558C7SdNWAms04XH5Wf10IA4fVLxSHn1eNL6e27m00r5GvUI5d');
+
+    return stripe;
+}
+
 
 export default function Product() {
 
@@ -50,6 +65,121 @@ export default function Product() {
 
     useEffect(debounce(onDiscountCodeUpdated, 200), [discountCode]);
 
+    //
+    // Displays an error message when the user has not entered their email address.
+    //
+    function onEmailError() {
+        alert("Please enter your email.\r\nWe need your email to be able to send you download links for Data-Forge Notebook. Your email won't be shared with anyone else.\r\n\r\nIf you have questions or a problem please email support@data-forge-notebook.com.");
+    }
+
+    //
+    // The PayPal payment button has been clicked.
+    //
+    async function onPurchaseWithPayPal() {
+        try {
+            let purchaseEmail = email;
+            if (purchaseEmail) {
+                purchaseEmail = purchaseEmail.trim();
+            }
+           
+            if (!purchaseEmail || purchaseEmail === "") {
+                onEmailError();
+                return;
+            }
+
+            //todo:
+            // mixpanel.alias(email);
+            // mixpanel.people.set({
+            //     $email: email,
+            // });
+
+            //todo:
+            // fbq('track', 'InitiateCheckout', {
+            //     value: 50,
+            //     currency: 'USD',
+            // });
+
+            setTimeout(function () {
+                //todo:
+                // mixpanel.track("Web-Payment-Started");
+                var purchaseUrl = baseApiUrl + "/purchase?email=" + encodeURIComponent(purchaseEmail);
+                if (discountCode) {
+                    purchaseUrl += "&discount=" + discountCode;
+                }
+                //todo:
+                // purchaseUrl += "&did=" + mixpanel.get_distinct_id();
+                window.open(purchaseUrl, "_self");
+            }, 300);
+
+        }
+        catch (err) {
+            console.error("Error after clicking the Stripe button:");
+            console.error(err && err.stack || err);
+        }
+    }
+
+    //
+    // The Stripe payment button has been clicked.
+    //
+    async function onPurchaseWithStripe() {
+        try {
+            const stripe = await _loadStripe();
+            if (!stripe) {
+                alert("Failed to load Stripe library.");
+                return;
+            }
+
+            let purchaseEmail = email;
+            if (purchaseEmail) {
+                purchaseEmail = purchaseEmail.trim();
+            }
+           
+            if (!purchaseEmail || purchaseEmail === "") {
+                onEmailError();
+                return;
+            }
+
+            var purchaseUrl = baseApiUrl + "/purchase-stripe?email=" + encodeURIComponent(purchaseEmail);
+            if (discountCode) {
+                purchaseUrl += "&discount=" + discountCode;
+            }
+            //todo:purchaseUrl += "&did=" + mixpanel.get_distinct_id();
+
+            var r = new XMLHttpRequest();
+            r.open("GET", purchaseUrl, true);
+            r.onreadystatechange = function () {
+                if (r.readyState !== XMLHttpRequest.DONE) {
+                    return;
+                }
+                
+                if (r.status != 200) {
+                    alert("Checkout failed, problem in the backend. Please let us know at support@data-forge-notebook.com");
+                    return;
+                }
+
+                var response = JSON.parse(r.responseText);
+                if (response.session) {
+                    stripe.redirectToCheckout({
+                            sessionId: response.session,
+                        })
+                        .then(function (result) {
+                            alert("Checkout failed, details: \n" + result.error.message);
+                        });
+                }
+                else {
+                    alert("Checkout failed, problem in the backend. Please let us know at support@data-forge-notebook.com");
+                }
+            };
+            r.send();
+
+
+        }
+        catch (err) {
+            console.error("Error after clicking the Stripe button:");
+            console.error(err && err.stack || err);
+        }
+    }
+
     return (
         <Layout>
             <div className="product">
@@ -70,7 +200,10 @@ export default function Product() {
                 </div>
 
                 <div className="mt-16">
-                    <a className="cursor-pointer" onClick={() => {/*todo: "onClickPurchase()"*/}} >
+                    <a 
+                        className="cursor-pointer" 
+                        onClick={onPurchaseWithPayPal} 
+                        >
                         <div 
                             className="paypal-button paypal-button-number-0 paypal-button-layout-horizontal paypal-button-shape-pill paypal-button-branding-branded paypal-button-number-single paypal-button-env-production paypal-should-focus paypal-button-label-buynow paypal-button-color-gold paypal-button-logo-color-blue" 
                             role="button" 
@@ -99,6 +232,7 @@ export default function Product() {
                 <div className="mt-8">
                     <button 
                         id="checkout-button"
+                        onClick={onPurchaseWithStripe}
                         >
                         Buy now with credit card
                     </button>

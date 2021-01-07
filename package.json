@@ -8,6 +8,7 @@
     "publish": "rm -rf docs && next build && next export && mv out docs"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.11.0",
     "@zeit/next-less": "^1.0.1",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
