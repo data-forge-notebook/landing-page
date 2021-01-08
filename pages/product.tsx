@@ -11,12 +11,15 @@ var baseApiUrl = "https://api.data-forge-notebook.com";
 
 const defaultDiscountMsg = "If you have a discount code please enter it here";
 
+declare var mixpanel: any;
+declare var fbq: any;
+
 //
 // Load the Stripe API.
 //
 async function _loadStripe() {
     // SANDBOX
-    // fonst stripe = await loadStripe('pk_test_51H6qptBwAGsxbJSlNebVfem6QNcRHX11OcXtE1XyT9qAXpVP6Nts6FLBfcP0hBoMNaMjAdGCW5Wqvf2lR6z1Dlj800aWQMCCY9');
+    // const stripe = await loadStripe('pk_test_51H6qptBwAGsxbJSlNebVfem6QNcRHX11OcXtE1XyT9qAXpVP6Nts6FLBfcP0hBoMNaMjAdGCW5Wqvf2lR6z1Dlj800aWQMCCY9');
 
     // LIVE
     const stripe = await loadStripe('pk_live_51H6qptBwAGsxbJSl95hGruA0EB6jj8TZmtgC6t032a2Qz30u558C7SdNWAms04XH5Wf10IA4fVLxSHn1eNL6e27m00r5GvUI5d');
@@ -48,6 +51,10 @@ class Product extends React.Component<IProductProps, IProductState> {
         this.onDiscountCodeUpdated = debounce(this.onDiscountCodeUpdated, 200);
         this.onPurchaseWithPayPal = this.onPurchaseWithPayPal.bind(this);
         this.onPurchaseWithStripe = this.onPurchaseWithStripe.bind(this);
+
+        mixpanel.track("Web-View-Product");
+
+        fbq('track', 'ViewContent');
     }
 
     componentDidUpdate() {
@@ -59,6 +66,18 @@ class Product extends React.Component<IProductProps, IProductState> {
         if (this.state.discountCode === "" && this.props.query.discount) {
             this.setState({ discountCode: this.props.query.discount as string });
         }
+
+        if (this.props.query.aliasId) {
+            mixpanel.identify(this.props.query.aliasId);
+        }
+
+        if (this.props.query.email) {
+            mixpanel.alias(this.props.query.email);
+            mixpanel.people.set({
+                $email: this.props.query.email,
+            });
+        }
+
     }
 
     private onDiscountCodeUpdated() {
@@ -109,27 +128,23 @@ class Product extends React.Component<IProductProps, IProductState> {
                 return;
             }
 
-            //todo:
-            // mixpanel.alias(email);
-            // mixpanel.people.set({
-            //     $email: email,
-            // });
+            mixpanel.alias(purchaseEmail);
+            mixpanel.people.set({
+                $email: purchaseEmail,
+            });
 
-            //todo:
-            // fbq('track', 'InitiateCheckout', {
-            //     value: 50,
-            //     currency: 'USD',
-            // });
+            fbq('track', 'InitiateCheckout', {
+                value: 50,
+                currency: 'USD',
+            });
 
             setTimeout(() => {
-                //todo:
-                // mixpanel.track("Web-Payment-Started");
+                mixpanel.track("Web-Payment-Started");
                 var purchaseUrl = baseApiUrl + "/purchase?email=" + encodeURIComponent(purchaseEmail!);
                 if (this.state.discountCode) {
                     purchaseUrl += "&discount=" + this.state.discountCode;
                 }
-                //todo:
-                // purchaseUrl += "&did=" + mixpanel.get_distinct_id();
+                purchaseUrl += "&did=" + mixpanel.get_distinct_id();
                 window.open(purchaseUrl, "_self");
             }, 300);
 
@@ -165,7 +180,7 @@ class Product extends React.Component<IProductProps, IProductState> {
             if (this.state.discountCode) {
                 purchaseUrl += "&discount=" + this.state.discountCode;
             }
-            //todo:purchaseUrl += "&did=" + mixpanel.get_distinct_id();
+            purchaseUrl += "&did=" + mixpanel.get_distinct_id();
 
             var r = new XMLHttpRequest();
             r.open("GET", purchaseUrl, true);
