@@ -3,6 +3,8 @@ import Link from "next/link"
 import Layout from '../components/layout'
 import classNames from "classnames";
 
+declare var mixpanel: any;
+
 function ZoomableImage({ src, width }: { src: string, width?: number }) {
     return (
         <div 
@@ -41,6 +43,8 @@ export default class Home extends React.Component<{}, { show: boolean, pulse: bo
             show: false,
             pulse: false,
         };
+
+        mixpanel.track("Web-View-Landing");
     }
 
     componentDidMount() { 
@@ -479,15 +483,13 @@ export default class Home extends React.Component<{}, { show: boolean, pulse: bo
                                             if (email) {
                                                 email = email.trim();
                                             }
-                                            console.log("Email: " + email); //fio:
-                                            //todo:
-                                            // if (email) {
-                                            //     mixpanel.alias(email);
-                                            //     mixpanel.people.set({
-                                            //         $email: email,
-                                            //     });
-                                            //     mixpanel.track("Web-Subscribed", { email });
-                                            // }
+                                            if (email) {
+                                                mixpanel.alias(email);
+                                                mixpanel.people.set({
+                                                    $email: email,
+                                                });
+                                                mixpanel.track("Web-Subscribed", { email });
+                                            }
                                         }}
                                         />
                                     </div>
