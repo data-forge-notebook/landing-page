@@ -19,7 +19,7 @@ export default function Layout({ showMessage, children }: ILayoutProps) {
         <div>
             <Head>
                 <title>Data-Forge Notebook: Exploratory coding and visualization for JS/TS</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" type="image/png" href="/favicon.png"></link>
                 <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet"></link>
             </Head>
 
